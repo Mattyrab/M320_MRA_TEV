@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/M320-D1/M320-D1.iml" filepath="$PROJECT_DIR$/M320-D1/M320-D1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/M320_MRA_TEV.iml" filepath="$PROJECT_DIR$/.idea/M320_MRA_TEV.iml" />
+    </modules>
+  </component>
+</project>
