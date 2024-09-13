@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Student {
     private String name = new String();
@@ -18,7 +19,7 @@ public class Student {
     }
 
     public float getAverageGrade() {
-        float grades;
+        float grades = 0;
 
         for (Test test : tests) {
             grades =+ test.calculateGrade();
