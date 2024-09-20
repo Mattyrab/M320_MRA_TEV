@@ -10,6 +10,7 @@ public class Goalie extends Player{
         return body_size;
     }
 
+    @Override
     public void play() {
         System.out.println("Protect the goal.");
     }
