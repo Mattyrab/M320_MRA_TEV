@@ -26,6 +26,6 @@ public class Test {
     }
 
     public float calculateGrade() {
-        return ((points / maxPoints * 5) + 1);
+        return (((float) points / maxPoints * 5) + 1);
     }
 }

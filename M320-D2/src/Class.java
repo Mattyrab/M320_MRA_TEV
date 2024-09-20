@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.function.Consumer;
 
 public class Class {
 
@@ -21,7 +23,7 @@ public class Class {
     }
 
     public void addStudent(Student student) {
-        if students.size() < 20 {
+        if (students.size() < 20) {
             students.add(student);
         }
         else {
@@ -30,6 +32,11 @@ public class Class {
     }
 
     public float getAverage() {
+        float average = 0;
+        for (Student student:students) {
+            average += student.getAverageGrade();
+        };
 
+        return average / students.size();
     }
 }

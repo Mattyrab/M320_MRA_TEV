@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/M320-D1/M320-D1.iml" filepath="$PROJECT_DIR$/M320-D1/M320-D1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/M320-D2.iml" filepath="$PROJECT_DIR$/M320-D2.iml" />
       <module fileurl="file://$PROJECT_DIR$/M320-V1/M320-V1.iml" filepath="$PROJECT_DIR$/M320-V1/M320-V1.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/M320_MRA_TEV.iml" filepath="$PROJECT_DIR$/.idea/M320_MRA_TEV.iml" />
     </modules>
