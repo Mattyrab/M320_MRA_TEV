@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Student {
-    private String name = new String();
+    private String name;
     private ArrayList<Test> tests = new ArrayList<Test>();
     private Class studentClass;
 
@@ -19,7 +19,7 @@ public class Student {
     }
 
     public float getAverageGrade() {
-        float grades;
+        float grades = 0;
 
         for (Test test : tests) {
             grades += test.calculateGrade();
@@ -36,8 +36,8 @@ public class Student {
         return tests;
     }
 
-    public void setStudentClass(Class studentClass) {
-        studentClass = studentClass;
+    public void setStudentClass(Class assignedClass) {
+        studentClass = assignedClass;
     }
 
     public Class getStudentClass() {

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.function.Consumer;
 
 public class Class {
 
@@ -7,7 +8,6 @@ public class Class {
 
     public Class(String className) {
         name = className;
-        students = new ArrayList<>();
     }
 
     public String getName() {
@@ -32,7 +32,11 @@ public class Class {
     }
 
     public float getAverage() {
+        float average = 0;
+        for (Student student:students) {
+            average += student.getAverageGrade();
+        };
 
-
+        return average / students.size();
     }
 }
