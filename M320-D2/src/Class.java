@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Class {
 
@@ -6,6 +7,7 @@ public class Class {
 
     public Class(String className) {
         name = className;
+        students = new ArrayList<>();
     }
 
     public String getName() {
@@ -21,7 +23,7 @@ public class Class {
     }
 
     public void addStudent(Student student) {
-        if students.size() < 20 {
+        if (students.size() < 20) {
             students.add(student);
         }
         else {
@@ -30,6 +32,7 @@ public class Class {
     }
 
     public float getAverage() {
+
 
     }
 }

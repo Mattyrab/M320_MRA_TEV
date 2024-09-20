@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Student {
     private String name = new String();
@@ -21,7 +22,7 @@ public class Student {
         float grades;
 
         for (Test test : tests) {
-            grades =+ test.calculateGrade();
+            grades += test.calculateGrade();
         }
 
         return grades / tests.size();
