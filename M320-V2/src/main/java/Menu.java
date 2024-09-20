@@ -67,7 +67,7 @@ public class Menu {
             System.out.print("Enter Goalie's body size: ");
             double bodySize = scanner.nextDouble();
             scanner.nextLine();
-            goalie.setBody_size(bodySize);
+            goalie.setBodySize(bodySize);
 
             team.setGoalie(goalie);
             System.out.println("Added Goalie: " + name);
@@ -90,7 +90,7 @@ public class Menu {
         }
 
         if (team.getGoalie() != null) {
-            System.out.println("Goalie: " + team.getGoalie().getName() + " (Body Size: " + team.getGoalie().getBody_size() + ")");
+            System.out.println("Goalie: " + team.getGoalie().getName() + " (Body Size: " + team.getGoalie().getBodySize() + ")");
         } else {
             System.out.println("No Goalie added.");
         }

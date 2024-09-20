@@ -1,13 +1,13 @@
 public class Goalie extends Player{
 
-    private double body_size = 0;
+    private double bodySize = 0;
 
-    public void setBody_size(double body_size) {
-        this.body_size = body_size;
+    public void setBodySize(double bodySize) {
+        this.bodySize = bodySize;
     }
 
-    public double getBody_size() {
-        return body_size;
+    public double getBodySize() {
+        return bodySize;
     }
 
     @Override
