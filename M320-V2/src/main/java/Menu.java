@@ -1,9 +1,16 @@
 import java.util.Scanner;
 
+/**
+ * Provides a menu in the terminal for managing the team
+ */
+
 public class Menu {
     private Team team = new Team();
     private Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Displays the main menu and handles the user input
+     */
     public void displayMenu() {
         while (true) {
             System.out.println("----Make your own Teams!----");
@@ -39,6 +46,9 @@ public class Menu {
         }
     }
 
+    /**
+     * Adds an attacker to the team
+     */
     private void addAttacker() {
         Attacker attacker = new Attacker();
         System.out.print("Enter Attacker's name: ");
@@ -48,6 +58,9 @@ public class Menu {
         System.out.println("Added Attacker: " + name);
     }
 
+    /**
+     * Adds a defender to the team
+     */
     private void addDefender(){
         Defender defender = new Defender();
         System.out.print("Enter Defender's name: ");
@@ -57,6 +70,9 @@ public class Menu {
         System.out.println("Added Defender: " + name);
     }
 
+    /**
+     * Adds a goalie to the team with extra body size input
+     */
     private void addGoalie(){
         if (team.getGoalie() == null) {
             Goalie goalie = new Goalie();
@@ -76,6 +92,9 @@ public class Menu {
         }
     }
 
+    /**
+     * Displays the current team composition
+     */
     private void viewTeam(){
         System.out.println("\nTeam Composition");
 
