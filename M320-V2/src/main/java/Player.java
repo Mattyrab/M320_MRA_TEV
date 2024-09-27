@@ -2,7 +2,7 @@
  * <p>Player Class</p>
  * <p>Each player has a name and can do the base action of playing the game</p>
  *
- * @author Matthew & Tristan
+ * @author Matthew Tristan
  */
 public class Player {
 

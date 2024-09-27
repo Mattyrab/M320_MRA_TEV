@@ -3,7 +3,7 @@
  * <p>Protects the goal from opposite team attackers</p>
  * <p>Also has a body size</p>
  *
- * @author Matthew & Tristan
+ * @author Matthew and Tristan
  */
 public class Goalie extends Player{
 
