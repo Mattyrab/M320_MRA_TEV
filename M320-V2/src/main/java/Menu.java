@@ -3,7 +3,6 @@ import java.util.Scanner;
 /**
  * Provides a menu in the terminal for managing the team
  */
-
 public class Menu {
     private Team team = new Team();
     private Scanner scanner = new Scanner(System.in);

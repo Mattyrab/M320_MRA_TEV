@@ -1,6 +1,7 @@
 /**
  * <p>Player Class</p>
  * <p>Each player has a name and can do the base action of playing the game</p>
+ *
  * @author Matthew & Tristan
  */
 public class Player {
@@ -12,8 +13,8 @@ public class Player {
 
     /**
      * <p>Setter method for name of Player</p>
-     * @param name
-     * <p> name of Player as a String</p>
+     *
+     * @param name <p> name of Player as a String</p>
      */
     public void setName(String name) {
         this.name = name;
@@ -21,8 +22,8 @@ public class Player {
 
     /**
      * <p>Getter method for name of Player</p>
-     * @return name
-     * <p> name of Player as String</p>
+     *
+     * @return name <p> name of Player as String</p>
      */
     public String getName() {
         return name;

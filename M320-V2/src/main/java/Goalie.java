@@ -2,6 +2,7 @@
  * <p>Subclass of Player</p>
  * <p>Protects the goal from opposite team attackers</p>
  * <p>Also has a body size</p>
+ *
  * @author Matthew & Tristan
  */
 public class Goalie extends Player{
@@ -13,8 +14,8 @@ public class Goalie extends Player{
 
     /**
      * <p>Setter method for bodySize of Goalie</p>
-     * @param bodySize
-     * <p> bodySize of Goalie as a double</p>
+     *
+     * @param bodySize <p> bodySize of Goalie as a double</p>
      */
     public void setBodySize(double bodySize) {
         this.bodySize = bodySize;
@@ -22,8 +23,8 @@ public class Goalie extends Player{
 
     /**
      * <p>Getter method for bodySize of Goalie</p>
-     * @return bodySize
-     * <p> bodySize of Goalie as a double</p>
+     *
+     * @return bodySize <p> bodySize of Goalie as a double</p>
      */
     public double getBodySize() {
         return bodySize;
