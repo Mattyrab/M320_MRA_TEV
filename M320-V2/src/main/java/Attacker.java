@@ -2,7 +2,8 @@
  * <p>Subclass of Player</p>
  * <p>Plays aggressively and attempts to get goals</p>
  * <p>Also trains to improve stamina</p>
- * @author Matthew & Tristan
+ *
+ * @author Matthew and Tristan
  */
 public class Attacker extends Player {
 

@@ -1,7 +1,8 @@
 /**
  * <p>Subclass of Player</p>
  * <p>Plays defensively and prevent attackers of opposite team from getting goals</p>
- * @author Matthew & Tristan
+ *
+ * @author Matthew and Tristan
  */
 public class Defender extends Player {
 
