@@ -19,13 +19,6 @@ import lib.Output;
  */
 public class Main {
 
-    // Initialise Strings to avoid null pointer exception
-    private static String plainTextFile = "";
-    private static String plainText = "";
-
-    private static String cipherTextFile = "";
-    private static String cipherText = "";
-
     private static int encryptFileBool = 0;
 
     private static boolean exit = false;
@@ -34,31 +27,43 @@ public class Main {
     // INPUT METHODS -------------------------------------------------------------------
 
     // main input function
-    private static void input() {
+    private static void input(EncryptionText text, Cipher cipher) {
 
-        plainTextFile = Input.inputString("Please give the plaintext file name: ");
-        plainText = CustomFileProcessor.importText(plainTextFile, false);
+        String plainTextFile = Input.inputString("Please give the plaintext file name: ");
+        text.importText(plainTextFile, false);
 
-        cipherTextFile = Input.inputString("Please give ciphertext file name:");
-        cipherText = CustomFileProcessor.importText(cipherTextFile, true);
+        String cipherTextFile = Input.inputString("Please give ciphertext file name:");
+        cipher.importCipher(cipherTextFile, true);
+
+        text.setCipher(cipher);
 
         encryptFileBool = Input.inputInt("Encrypt (1) / Decrypt (2) / Exit (3) ");
     }
 
     // PROCESSING METHODS -----------------------------------------------------------------
 
-    private static void process() {
+    private static void process(EncryptionText text, Cipher cipher) {
+
+        String plainText;
+        String decryptedText;
+        String encryptedText;
+        String cipherText;
 
         switch (encryptFileBool) {
 
             case 1:
                 // Generate cipher key if it doesn't exist
-                if (cipherText.isEmpty()) {
-                    cipherText = createCipherKey(plainText);
+                if (cipher.getCipher().isEmpty()) {
+                    cipher.createCipherKey(text.getEncryptionText());
                 }
 
+                plainText = text.getEncryptionText();
+                cipherText = text.getCipherString();
+
                 try {
-                    plainText = RotateText.encrypt(Vigenere.encrypt(plainText, cipherText));
+                    encryptedText = RotateText.encrypt(Vigenere.encrypt(plainText, cipherText));
+                    text.setEncryptionText(encryptedText);
+                    text.setEncrypted(true);
                 } catch (RuntimeException exception) {
                     throw new EmptyParameterException("Plaintext / Ciphertext is missing!", exception);
                 }
@@ -66,13 +71,20 @@ public class Main {
 
             case 2:
                 // Exit if cipher key doesn't exist
-                if (cipherText.isEmpty()) {
+                if (text.getCipherString().isEmpty()) {
                     Output.printMessage("Cipher file is empty! Cannot decrypt");
                     break;
                 }
 
+
+
+                plainText = text.getEncryptionText();
+                cipherText = text.getCipherString();
+
                 try {
-                    plainText = Vigenere.decrypt(RotateText.decrypt(plainText), cipherText);
+                    decryptedText = Vigenere.decrypt(RotateText.decrypt(plainText), cipherText);
+                    text.setEncryptionText(decryptedText);
+                    text.setEncrypted(false);
                 } catch (RuntimeException exception) {
                     throw new EmptyParameterException("Plaintext / Ciphertext is missing!", exception);
                 }
@@ -89,41 +101,24 @@ public class Main {
     }
 
 
-
-    // Create cipher key if none is present in the provided
-    // cipher file before the encryption of the plaintext
-    private static String createCipherKey(String plainText) {
-
-        int textLength = plainText.length();
-
-        String cipherKey = "";
-
-        Random cipherGenerator = new Random();
-
-        cipherGenerator.setSeed(textLength + System.currentTimeMillis());
-
-        for (int i = 0; i <= textLength; i++) {
-            cipherKey = cipherKey.concat(String.valueOf((char)  cipherGenerator.nextInt(65, 90)));
-        }
-        return cipherKey;
-    }
-
     // OUTPUT METHODS ------------------------------------------------------------------
 
-    private static void output() {
-        CustomFileProcessor.exportText(plainTextFile, plainText);
-        CustomFileProcessor.exportText(cipherTextFile, cipherText);
+    private static void output(EncryptionText text, Cipher cipher) {
+        CustomFileProcessor.exportText(text.getFileName(), text.getEncryptionText());
+        CustomFileProcessor.exportText(cipher.getFileName(), cipher.getCipher());
     }
 
     // MAIN METHOD -------------------------------------------------------------------
 
     public static void main(String[] args) {
 
-        do {
+        EncryptionText text = new EncryptionText();
+        Cipher cipher = new Cipher();
 
-            input();
-            process();
-            output();
+        do {
+            input(text, cipher);
+            process(text, cipher);
+            output(text, cipher);
 
         } while(!exit);
     }
