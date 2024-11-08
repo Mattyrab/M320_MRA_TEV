@@ -1,7 +1,9 @@
 import lib.CustomFileProcessor;
 
 /**
+ * Class for handling text, both encrypted and decrypted
  *
+ * @author Matthew Rabe
  */
 public class EncryptionText {
 

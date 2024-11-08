@@ -16,6 +16,7 @@ import lib.Output;
  * <p>
  * @version 1.0.0, Date: 09-11-2023, Original
  * @version 1.0.1, Date: 10-11-2023, Update description and comments
+ * @version 1.1.0, Date: 08-11-2024, Massive overhaul of program, more Object-Oriented.
  */
 public class Main {
 
@@ -44,6 +45,8 @@ public class Main {
 
     private static void process(EncryptionText text, Cipher cipher) {
 
+        // Temporary variables to assist in reading the code
+
         String plainText;
         String decryptedText;
         String encryptedText;
@@ -61,9 +64,12 @@ public class Main {
                 cipherText = text.getCipherString();
 
                 try {
+                    // Main encryption, first Vigenere, then Rotate
                     encryptedText = RotateText.encrypt(Vigenere.encrypt(plainText, cipherText));
                     text.setEncryptionText(encryptedText);
                     text.setEncrypted(true);
+
+                    // Just in case the plain text and/or cipher key is empty
                 } catch (RuntimeException exception) {
                     throw new EmptyParameterException("Plaintext / Ciphertext is missing!", exception);
                 }
@@ -76,15 +82,16 @@ public class Main {
                     break;
                 }
 
-
-
                 plainText = text.getEncryptionText();
                 cipherText = text.getCipherString();
 
                 try {
+                    // Main decryption, first Rotate, then Vigenere (reverse order of encryption)
                     decryptedText = Vigenere.decrypt(RotateText.decrypt(plainText), cipherText);
                     text.setEncryptionText(decryptedText);
                     text.setEncrypted(false);
+
+                    // Just in case the plain text and/or cipher key is empty
                 } catch (RuntimeException exception) {
                     throw new EmptyParameterException("Plaintext / Ciphertext is missing!", exception);
                 }
@@ -103,6 +110,12 @@ public class Main {
 
     // OUTPUT METHODS ------------------------------------------------------------------
 
+    /**
+     * Outputs the encrypted / decrypted text file, and it's corresponding cipher key
+     *
+     * @param text Encrypted / Decrypted text object
+     * @param cipher The cipher object, containing the key
+     */
     private static void output(EncryptionText text, Cipher cipher) {
         CustomFileProcessor.exportText(text.getFileName(), text.getEncryptionText());
         CustomFileProcessor.exportText(cipher.getFileName(), cipher.getCipher());
