@@ -1,4 +1,7 @@
 import java.util.Random;
+import lib.Input;
+import lib.CustomFileProcessor;
+import lib.Output;
 
 /**
  * <title>AdvancedTextEncryption
@@ -14,11 +17,6 @@ import java.util.Random;
  * @version 1.0.0, Date: 09-11-2023, Original
  * @version 1.0.1, Date: 10-11-2023, Update description and comments
  */
-
-import lib.Input;
-import lib.CustomFileProcessor;
-import lib.Output;
-
 public class Main {
 
     // Initialise Strings to avoid null pointer exception
