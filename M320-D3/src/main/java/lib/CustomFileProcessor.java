@@ -21,7 +21,7 @@ import java.util.Scanner;
 public class CustomFileProcessor {
 
     // Import text file using the Scanner Class
-    public static String importText(String sFileName, String sFileText, boolean createFile) {
+    public static String importText(String fileName, boolean createFile) {
 
         String sImportedFile = "";
 
@@ -33,19 +33,19 @@ public class CustomFileProcessor {
         try {
             if (createFile) {
                 try {
-                    importedFile = new File(sFileName);
+                    importedFile = new File(fileName);
                     if (importedFile.createNewFile()) {
-                        printMessage("File created: " + sFileName);
+                        Output.printMessage("File created: " + fileName);
                     } else {
-                        printMessage("File already exists.");
+                        Output.printMessage("File already exists.");
                     }
                 } catch (IOException error) {
-                    printMessage("An error occurred.");
+                    Output.printMessage("An IO error occurred.");
                     error.printStackTrace();
                     System.exit(0);
                 }
             } else {
-              importedFile = new File(sFileName);
+              importedFile = new File(fileName);
             }
 
             // Compare File length to Scanner max buffer size
@@ -56,44 +56,40 @@ public class CustomFileProcessor {
                     sImportedFile = sImportedFile.concat(fileScanner.nextLine() + "\n");
                 }
             } else {
-                printMessage("File size is too big, limit is " + BUFFER_SIZE + " characters.");
+                Output.printMessage("File size is too big, limit is " + BUFFER_SIZE + " characters.");
                 System.exit(0);
             }
         } catch (FileNotFoundException error) {
-            printMessage("File not found.");
+            Output.printMessage("File not found.");
             System.exit(0);
         }
         return sImportedFile;
     }
 
-    public static void exportText(String sFileName, String sFileText) {
+    public static void exportText(String fileName, String fileText) {
 
         // Create new file for encrypted/decrypted text
         try {
-            File fileToExport = new File(sFileName);
+            File fileToExport = new File(fileName);
             if (fileToExport.createNewFile()) {
-                printMessage("File created: " + sFileName);
+                Output.printMessage("File created: " + fileName);
             } else {
-                printMessage("File " + sFileName + " already exists.");
+                Output.printMessage("File " + fileName + " already exists.");
             }
         } catch (IOException error) {
-            printMessage("An error occurred.");
+            Output.printMessage("An error occurred.");
             error.printStackTrace();
         }
 
         // Write text to file
         try {
-            FileWriter fileToWrite = new FileWriter(sFileName);
-            fileToWrite.write(sFileText);
+            FileWriter fileToWrite = new FileWriter(fileName);
+            fileToWrite.write(fileText);
             fileToWrite.close();
-            printMessage("Successfully wrote to the file " + sFileName + ".");
+            Output.printMessage("Successfully wrote to the file " + fileName + ".");
         } catch (IOException error) {
-            printMessage("An error occurred.");
+            Output.printMessage("An error occurred.");
             error.printStackTrace();
         }
-    }
-
-    private static void printMessage(String sMessage) {
-        System.out.println(sMessage);
     }
 }
