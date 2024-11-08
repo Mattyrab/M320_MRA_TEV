@@ -1,9 +1,10 @@
 import lib.CustomFileProcessor;
-
 import java.util.Random;
 
 /**
  * Class for handling ciphers
+ *
+ * @author Matthew Rabe
  */
 public class Cipher {
 
@@ -41,8 +42,11 @@ public class Cipher {
         this.cipher = CustomFileProcessor.importText(cipherFileName, createFile);
     }
 
-    // Create cipher key if none is present in the provided
-    // cipher file before the encryption of the plaintext
+    /**
+     * Create cipher key if none is present in the provided
+     * cipher file before the encryption of the plaintext
+     * @param plainText Text to be used for the cipher key creation
+     */
     public void createCipherKey(String plainText) {
 
         int textLength = plainText.length();
