@@ -129,6 +129,11 @@ public class Main {
 
         do {
             input(text, cipher);
+
+            if (exit) {
+                break;
+            }
+
             process(text, cipher);
             output(text, cipher);
 
