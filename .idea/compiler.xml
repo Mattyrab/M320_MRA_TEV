@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="M320-V3" />
+        <module name="M320-4" />
         <module name="M320-D2" />
         <module name="M320-V2" />
         <module name="M320-D3" />
