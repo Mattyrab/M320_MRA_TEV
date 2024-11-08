@@ -9,6 +9,7 @@
         <module name="M320-V3" />
         <module name="M320-D2" />
         <module name="M320-V2" />
+        <module name="M320-D3" />
       </profile>
     </annotationProcessing>
   </component>
